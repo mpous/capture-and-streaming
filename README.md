@@ -8,6 +8,8 @@ The capture block will automatically set `BALENA_HOST_CONFIG_start_x` to `1` and
 
 The Capture Block takes a video source (usually a camera) as an input and converts it to an RTSP stream. It utilizes [gst-rtsp-server](https://github.com/GStreamer/gst-rtsp-server) for core functionality.
 
+Create the Device Variable `GST_V4L2_USE_LIBV4L2` to `1` to enable the camera.
+
 Input: The block will search for a Pi Camera (currently only on a Raspberry Pi) and use that by default. If it does not find a Pi Camera, it will look for a USB camera and use the first one it finds. If the camera supports YUYV it will use that, otherwise it will use mjpeg. You can override this automatic selection process by specifying your own Gstreamer pipeline using the service variable `GST_RTSP_PIPELINE`. 
 
 You can also use a custom pipeline to change the default height, width, and framerate. For instance, here is the default pipeline used when a Pi camera is detected:
